@@ -12,12 +12,13 @@ COPY yarn.lock ./
 COPY ./tsconfig.json ./
 COPY ./nodemon.json ./
 
+# Install dependencies
+RUN yarn
+
 # Copy files
 COPY ./src ./src
 COPY ./data ./data
 
-# Install dependencies
-RUN yarn
 
 EXPOSE 4000
 CMD [ "yarn", "start" ]
